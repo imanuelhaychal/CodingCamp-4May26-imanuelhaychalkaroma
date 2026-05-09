@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── Top bar: name input + dark mode toggle ── -->
+  <header id="top-bar">
+    <div id="name-setting">
+      <label for="user-name-input">Your name:</label>
+      <input id="user-name-input" type="text" placeholder="Enter your name…" autocomplete="off" maxlength="40" />
+    </div>
+    <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+  </header>
+
+  <div id="dashboard">
+
+    <!-- Greeting Widget — full top row -->
+    <section id="greeting-widget" class="widget">
+      <div id="greeting-time"></div>
+      <div id="greeting-date"></div>
+      <div id="greeting-message"></div>
+    </section>
+
+    <!-- Focus Timer Widget -->
+    <section id="focus-timer" class="widget">
+      <h2>Focus Timer</h2>
+      <div id="timer-display">25:00</div>
+      <div id="timer-controls">
+        <button id="timer-start">Start</button>
+        <button id="timer-stop">Stop</button>
+        <button id="timer-reset">Reset</button>
+      </div>
+      <!-- Custom duration -->
+      <div id="timer-duration-row">
+        <label for="timer-duration-input">Minutes:</label>
+        <input id="timer-duration-input" type="number" min="1" max="120" value="25" />
+        <button id="timer-set-btn" type="button">Set</button>
+      </div>
+    </section>
+
+    <!-- To-Do List Widget -->
+    <section id="todo-list" class="widget">
+      <!-- Header row: title + sort controls -->
+      <div id="todo-header">
+        <h2>Tasks</h2>
+        <div id="sort-controls">
+          <label for="sort-select">Sort:</label>
+          <select id="sort-select">
+            <option value="none">Default</option>
+            <option value="az">A → Z</option>
+            <option value="za">Z → A</option>
+            <option value="pending">Pending first</option>
+            <option value="completed">Completed first</option>
+          </select>
+        </div>
+      </div>
+      <form id="todo-add-form">
+        <input id="todo-input" type="text" placeholder="Add a new task..." autocomplete="off" />
+        <button type="submit">Add</button>
+      </form>
+      <!-- Duplicate warning (hidden by default) -->
+      <div id="todo-duplicate-warning" role="alert" aria-live="polite"></div>
+      <ul id="todo-task-list"></ul>
+    </section>
+
+    <!-- Quick Links Widget -->
+    <section id="quick-links" class="widget">
+      <h2>Quick Links</h2>
+      <form id="links-add-form">
+        <input id="links-label-input" type="text" placeholder="Link name" autocomplete="off" />
+        <input id="links-url-input" type="url" placeholder="URL" autocomplete="off" />
+        <button type="submit">Add Link</button>
+      </form>
+      <div id="links-container"></div>
+    </section>
+
+  </div>
+
+  <!-- Test results (hidden by default) -->
+  <div id="test-results" style="display:none;"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
